@@ -1,3 +1,8 @@
+import kitImage from './assets/kit.svg';
+import lipstickImage from './assets/lipstick.svg';
+import mascaraImage from './assets/mascara.svg';
+import eyelinerImage from './assets/eyeliner.svg';
+
 const products = [
   {
     name: 'Velvet Rouge',
@@ -5,7 +10,8 @@ const products = [
     description: 'Color intenso, acabado satinado y confort de larga duración.',
     accent: 'Rose Noir',
     price: '24€',
-    tone: 'rose'
+    tone: 'rose',
+    image: lipstickImage
   },
   {
     name: 'Lash Lift',
@@ -13,7 +19,8 @@ const products = [
     description: 'Pestañas definidas, elevadas y con un efecto editorial.',
     accent: 'Midnight Black',
     price: '29€',
-    tone: 'black'
+    tone: 'black',
+    image: mascaraImage
   },
   {
     name: 'Linea Élite',
@@ -21,7 +28,8 @@ const products = [
     description: 'Trazo fino o dramático con una fórmula resistente.',
     accent: 'Golden Smoke',
     price: '22€',
-    tone: 'gold'
+    tone: 'gold',
+    image: eyelinerImage
   }
 ];
 
@@ -54,11 +62,7 @@ function App() {
           </div>
 
           <div className="hero-visual" aria-label="Vista editorial de maquillaje premium">
-            <div className="card-stack">
-              <div className="visual-card main-card" />
-              <div className="visual-card accent-card" />
-              <div className="visual-card detail-card" />
-            </div>
+            <img src={kitImage} alt="Kit de maquillaje Luméra" className="hero-image" />
           </div>
         </div>
       </header>
@@ -73,7 +77,9 @@ function App() {
           <div className="product-grid">
             {products.map((product) => (
               <article className="product-card" key={product.name}>
-                <div className={`product-visual ${product.tone}`} aria-hidden="true" />
+                <div className={`product-visual ${product.tone}`}>
+                  <img src={product.image} alt={product.name} className="product-image" />
+                </div>
                 <p className="product-type">{product.type}</p>
                 <h3>{product.name}</h3>
                 <p>{product.description}</p>

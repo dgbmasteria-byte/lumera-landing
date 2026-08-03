@@ -62,23 +62,38 @@ h1 {
 .btn-primary { background: var(--accent); color: #fff; font-weight: 700; border-color: transparent; }
 .btn-secondary { color: var(--text); background: #fcf8f2; }
 .hero-visual { display: flex; justify-content: center; }
-.card-stack {
-  position: relative; width: min(100%, 420px); aspect-ratio: 4/5; border-radius: 28px; background: linear-gradient(135deg, #fdf7ef 0%, #f2e3d2 100%);
-  border: 1px solid var(--border); overflow: hidden;
+.hero-image {
+  width: min(100%, 520px);
+  border-radius: 30px;
+  box-shadow: 0 28px 72px rgba(0, 0, 0, 0.12);
 }
-.visual-card {
-  position: absolute; border-radius: 24px; border: 1px solid rgba(31,26,24,0.08);
+.product-visual {
+  height: 180px; border-radius: 18px; margin-bottom: 14px; position: relative;
+  border: 1px solid rgba(31,26,24,0.06);
+  overflow: hidden;
+  background: var(--surface);
 }
-.main-card {
-  inset: 48px 56px 70px 40px; background: linear-gradient(140deg, #ffffff, #e8cfb3 85%);
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
-.accent-card {
-  inset: auto 28px 24px auto; width: 140px; height: 180px; background: linear-gradient(160deg, #f7e1c6, #d89a7a 100%);
+.product-visual::before,
+.product-visual::after {
+  content: '';
+  position: absolute;
+  border-radius: 999px;
 }
-.detail-card {
-  inset: 26px auto auto 36px; width: 120px; height: 120px; background: linear-gradient(135deg, #fff, #f0d9bf);
-  border-radius: 50%;
+.product-visual::before {
+  width: 110px; height: 110px; background: rgba(255,255,255,0.7); top: 28px; left: 30px;
 }
+.product-visual::after {
+  width: 140px; height: 24px; background: rgba(31,26,24,0.12); bottom: 28px; right: 24px;
+}
+.product-visual.rose { background: linear-gradient(135deg, #fff2f0, #e8c7c0 100%); }
+.product-visual.black { background: linear-gradient(135deg, #f9f7f2, #2d2a29 100%); }
+.product-visual.gold { background: linear-gradient(135deg, #fff8eb, #d8b56d 100%); }
 .section { max-width: 1200px; margin: 32px auto 0; padding: 28px 0; }
 .section-heading { margin-bottom: 20px; }
 .section-heading h2 { font-size: clamp(1.5rem, 2.2vw, 2.1rem); margin: 0; }
